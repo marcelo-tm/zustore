@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import { Category } from "../types/Category";
+import { Product } from "../types/Product";
 
 type State = {
   isOpen: boolean;
