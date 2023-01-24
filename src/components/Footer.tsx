@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <ContentWrapper className="bg-default text-white" row center>
+    <ContentWrapper className="bg-default text-white mt-auto" row center>
       <div>
         <Logo white={true} height={50} />
         <p className="text-xs w-72 mt-2">

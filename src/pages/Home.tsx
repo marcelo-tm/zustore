@@ -8,16 +8,18 @@ import { ProductItem } from "../components/ProductItem";
 import useCartStore from "../stores/cart";
 import { Product } from "../types/Product";
 import { Category } from "../types/Category";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
   const cartStore = useCartStore();
+  const navigate = useNavigate();
 
   function handleCoverClick() {
     console.log("CLICK");
   }
 
-  function handleCategoryClick(id: number) {
-    console.log("CATEGORY", id);
+  function handleCategoryClick(slug: string) {
+    navigate(`category/${slug}`);
   }
 
   function handleAddItemToCart(product: Product) {
@@ -54,7 +56,7 @@ export function Home() {
               <CategoryItem
                 key={`cat-${category.id}`}
                 category={category}
-                onClick={() => handleCategoryClick(category.id)}
+                onClick={() => handleCategoryClick(category.slug)}
               />
             ))}
           </div>

@@ -5,6 +5,7 @@ import { HeaderCartIcon } from "./HeaderCartIcon";
 import { IconButton } from "./IconButton";
 import { ContentWrapper } from "./ContentWrapper";
 import useCartStore from "../stores/cart";
+import { Category } from "../types/Category";
 
 export function Header() {
   const cartStore = useCartStore();
@@ -19,15 +20,15 @@ export function Header() {
         <Logo />
 
         <nav>
-          <ul className="flex gap-7">
-            <Link to="/" className="uppercase font-semibold">
-              Home
-            </Link>
-            <li className="uppercase font-semibold">Products</li>
-            <Link to="about" className="uppercase font-semibold">
-              About Us
-            </Link>
-            <li className="uppercase font-semibold">Contact</li>
+          <ul className="flex gap-7 uppercase font-semibold">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            {cartStore.categories.map((category) => (
+              <li key={category.id}>
+                <Link to={`category/${category.slug}`}>{category.name}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
 

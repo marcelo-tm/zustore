@@ -34,7 +34,7 @@ export function SharedLayout() {
   }, []);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen flex flex-col">
       <Header />
       <Cart isOpen={cartStore.isOpen} toggleOpen={cartStore.toggleOpen} />
 
