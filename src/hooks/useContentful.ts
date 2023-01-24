@@ -2,9 +2,9 @@ import { createClient } from "contentful";
 
 export default function useContentful() {
   const client = createClient({
-    space: "7popja01mm34",
-    accessToken: "czelv2QGcWuMH4dN3HSQnIbVXvi43eZtdG9Ja9SmkZ8",
-    host: "preview.contentful.com",
+    space: import.meta.env.VITE_CONTENTFUL_SPACE,
+    accessToken: import.meta.env.VITE_CONTENTFUL_TOKEN,
+    host: import.meta.env.VITE_CONTENTFUL_HOST,
   });
 
   const getCategories = async () => {
