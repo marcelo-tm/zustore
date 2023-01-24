@@ -6,6 +6,8 @@ import { Title } from "../components/Title";
 
 import { ProductItem } from "../components/ProductItem";
 import useCartStore from "../stores/cart";
+import { Product } from "../types/Product";
+import { Category } from "../types/Category";
 
 export function Home() {
   const cartStore = useCartStore();

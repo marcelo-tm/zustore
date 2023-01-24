@@ -1,3 +1,4 @@
+import { Category } from "../types/Category";
 import { Button } from "./Button";
 import { ItemContainer } from "./ItemContainer";
 

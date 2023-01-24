@@ -1,4 +1,6 @@
 import { createClient } from "contentful";
+import { Category } from "../types/Category";
+import { Product } from "../types/Product";
 
 export default function useContentful() {
   const client = createClient({
