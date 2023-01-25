@@ -1,9 +1,9 @@
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
-import { ItemContainer } from "./ItemContainer";
-import { IconButton } from "./IconButton";
-import { Rating } from "./Rating";
-import { Product } from "../types/Product";
+import { ItemContainer } from "../ItemContainer";
+import { IconButton } from "../IconButton";
+import { Rating } from "../Rating";
+import { Product } from "../../types/Product";
 
 type ProductItemProps = {
   product: Product;
@@ -27,7 +27,10 @@ export function ProductItem({ product, onClick }: ProductItemProps) {
           <div className="flex items-center">
             <p className="font-semibold text-lg">${product.price}</p>
             {product.oldPrice ? (
-              <p className="text-border text-sm line-through ml-2">
+              <p
+                className="text-border text-sm line-through ml-2"
+                aria-label="old-price"
+              >
                 ${product.oldPrice}
               </p>
             ) : null}

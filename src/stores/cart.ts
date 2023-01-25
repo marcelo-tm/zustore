@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { Category } from "../types/Category";
 import { Product } from "../types/Product";
 
-type State = {
+type CarStoreState = {
   isOpen: boolean;
   toggleOpen: () => void;
   categories: Category[];
@@ -13,7 +13,7 @@ type State = {
   toggleCartProducts: (data: Product) => void;
 };
 
-const useCartStore = create<State>((set, get) => ({
+const useCartStore = create<CarStoreState>((set, get) => ({
   isOpen: false,
   toggleOpen: () => set({ isOpen: !get().isOpen }),
 

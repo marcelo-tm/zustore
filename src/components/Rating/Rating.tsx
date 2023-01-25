@@ -12,14 +12,26 @@ export function Rating({ id, rating }: RatingProps) {
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
       ratingArray.push(
-        <StarIcon className="h-4 w-4" key={`rating-${i}${id}`} />
+        <StarIcon
+          className="h-4 w-4"
+          key={`rating-${i}${id}`}
+          aria-label="star"
+        />
       );
     } else {
       ratingArray.push(
-        <HollowStarIcon className="h-4 w-4" key={`rating-${i}${id}`} />
+        <HollowStarIcon
+          className="h-4 w-4"
+          key={`rating-${i}${id}`}
+          aria-label="hollow-star"
+        />
       );
     }
   }
 
-  return <div className="flex items-center text-rating">{...ratingArray}</div>;
+  return (
+    <div className="flex items-center text-rating" aria-label="rating">
+      {...ratingArray}
+    </div>
+  );
 }

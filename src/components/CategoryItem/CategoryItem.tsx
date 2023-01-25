@@ -1,6 +1,6 @@
-import { Category } from "../types/Category";
-import { Button } from "./Button";
-import { ItemContainer } from "./ItemContainer";
+import { Category } from "../../types/Category";
+import { Button } from "../Button";
+import { ItemContainer } from "../ItemContainer";
 
 type CategoryItemProps = {
   category: Category;
