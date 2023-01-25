@@ -13,6 +13,7 @@ export function ItemContainer({
       className={`rounded-md border border-border bg-white p-5 w-[300px] ${
         className ? className : ""
       }`}
+      aria-label="item-container"
     >
       <img
         src={imageUrl}

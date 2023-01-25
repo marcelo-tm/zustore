@@ -1,14 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 import watchesCover from "../assets/watch_cover.png";
 import { Button } from "../components/Button";
 import { CategoryItem } from "../components/CategoryItem";
 import { ContentWrapper } from "../components/ContentWrapper";
 import { Title } from "../components/Title";
-
 import { ProductItem } from "../components/ProductItem";
 import useCartStore from "../stores/cart";
 import { Product } from "../types/Product";
 import { Category } from "../types/Category";
-import { useNavigate } from "react-router-dom";
 
 export function Home() {
   const cartStore = useCartStore();
