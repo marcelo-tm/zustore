@@ -23,7 +23,6 @@ export function Home() {
   }
 
   function handleAddItemToCart(product: Product) {
-    console.log("ADD TO CART", product);
     cartStore.toggleCartProducts(product);
   }
 
@@ -73,6 +72,7 @@ export function Home() {
                 key={`bs-${product.id}`}
                 product={product}
                 onClick={() => handleAddItemToCart(product)}
+                cartProducts={cartStore.cartProducts}
               />
             ))}
           </div>

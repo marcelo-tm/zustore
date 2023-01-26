@@ -12,7 +12,7 @@ describe("Logo", () => {
 
     const logo = screen.getByAltText("Zustand Store");
     expect(logo).toHaveAttribute("style", "height: 60px;");
-    expect(logo).toHaveAttribute("src", "/assets/zustore_logo.png");
+    expect(logo).toHaveAttribute("src", "/src/assets/zustore_logo.png");
   });
 
   it("should render white variation properly", () => {
@@ -20,7 +20,7 @@ describe("Logo", () => {
 
     const logo = screen.getByAltText("Zustand Store");
     expect(logo).toHaveAttribute("style", "height: 60px;");
-    expect(logo).toHaveAttribute("src", "/assets/zustore_logo_white.png");
+    expect(logo).toHaveAttribute("src", "/src/assets/zustore_logo_white.png");
   });
 
   it("should render with custom height", () => {
@@ -28,6 +28,6 @@ describe("Logo", () => {
 
     const logo = screen.getByAltText("Zustand Store");
     expect(logo).toHaveAttribute("style", "height: 40px;");
-    expect(logo).toHaveAttribute("src", "/assets/zustore_logo.png");
+    expect(logo).toHaveAttribute("src", "/src/assets/zustore_logo.png");
   });
 });

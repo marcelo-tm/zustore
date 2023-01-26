@@ -4,6 +4,18 @@ import { describe, expect, it, vi } from "vitest";
 
 import { ProductItem } from "./ProductItem";
 
+const cartProducts = [
+  {
+    id: 1,
+    name: "Product 1",
+    imgUrl: "https://via.placeholder.com/300",
+    price: 20,
+    oldPrice: 10,
+    rating: 4,
+    categoryId: 1,
+  },
+];
+
 describe("ProductItem", () => {
   afterEach(cleanup);
 
@@ -18,7 +30,13 @@ describe("ProductItem", () => {
       categoryId: 1,
     };
     const onClick = vi.fn();
-    render(<ProductItem product={product} onClick={onClick} />);
+    render(
+      <ProductItem
+        product={product}
+        onClick={onClick}
+        cartProducts={cartProducts}
+      />
+    );
 
     const image = screen.getByAltText("Item image");
     expect(image).toHaveAttribute("src", product.imgUrl);
@@ -46,8 +64,37 @@ describe("ProductItem", () => {
       categoryId: 1,
     };
     const onClick = vi.fn();
-    render(<ProductItem product={product} onClick={onClick} />);
+    render(
+      <ProductItem
+        product={product}
+        onClick={onClick}
+        cartProducts={cartProducts}
+      />
+    );
 
     expect(screen.queryByLabelText("old-price")).not.toBeInTheDocument();
+  });
+
+  it("should change product cart icon color if product is in the cart", () => {
+    const product = {
+      id: 1,
+      name: "Product 1",
+      imgUrl: "https://via.placeholder.com/300",
+      price: 20,
+      rating: 4,
+      categoryId: 1,
+    };
+    const onClick = vi.fn();
+    render(
+      <ProductItem
+        product={product}
+        onClick={onClick}
+        cartProducts={cartProducts}
+      />
+    );
+
+    expect(screen.queryByLabelText("product-cart-icon")).toHaveClass(
+      "bg-primary"
+    );
   });
 });
