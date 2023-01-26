@@ -22,10 +22,6 @@ export function Home() {
     navigate(`category/${slug}`);
   }
 
-  function handleAddItemToCart(product: Product) {
-    cartStore.toggleCartProducts(product);
-  }
-
   return (
     <div>
       <ContentWrapper>
@@ -71,7 +67,7 @@ export function Home() {
               <ProductItem
                 key={`bs-${product.id}`}
                 product={product}
-                onClick={() => handleAddItemToCart(product)}
+                onClick={() => cartStore.toggleCartProducts(product)}
                 cartProducts={cartStore.cartProducts}
               />
             ))}

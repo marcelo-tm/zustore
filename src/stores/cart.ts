@@ -28,7 +28,10 @@ const useCartStore = create<CarStoreState>((set, get) => ({
   toggleCartProducts: (data: Product) =>
     set((state) => {
       let list: Product[] = [];
-      if (state.cartProducts.includes(data)) {
+
+      const index = state.cartProducts.findIndex((obj) => obj.id === data.id);
+
+      if (index > -1) {
         list = state.cartProducts.filter((prod) => prod.id !== data.id);
       } else {
         list = [...state.cartProducts, { ...data, quantity: 1 }];
