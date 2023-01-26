@@ -11,6 +11,7 @@ type CarStoreState = {
   setBestSelling: (data: Product[]) => void;
   cartProducts: Product[];
   toggleCartProducts: (data: Product) => void;
+  updateProductQuantity: (data: Product, quantity: number) => void;
 };
 
 const useCartStore = create<CarStoreState>((set, get) => ({
@@ -30,13 +31,28 @@ const useCartStore = create<CarStoreState>((set, get) => ({
       if (state.cartProducts.includes(data)) {
         list = state.cartProducts.filter((prod) => prod.id !== data.id);
       } else {
-        list = [...state.cartProducts, data];
+        list = [...state.cartProducts, { ...data, quantity: 1 }];
       }
 
       return {
         ...state,
         cartProducts: list,
       };
+    }),
+  updateProductQuantity: (data: Product, quantity: number) =>
+    set((state) => {
+      const updatedList = [...state.cartProducts];
+
+      const index = updatedList.findIndex((obj) => obj.id === data.id);
+
+      if (index > -1) {
+        updatedList[index] = {
+          ...data,
+          quantity,
+        };
+      }
+
+      return { ...state, cartProducts: updatedList };
     }),
 }));
 

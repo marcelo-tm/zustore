@@ -6,4 +6,5 @@ export type Product = {
   oldPrice?: number;
   rating: number;
   categoryId: number;
+  quantity: number;
 };

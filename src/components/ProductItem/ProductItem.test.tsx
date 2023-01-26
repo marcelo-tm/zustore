@@ -13,6 +13,7 @@ const cartProducts = [
     oldPrice: 10,
     rating: 4,
     categoryId: 1,
+    quantity: 1,
   },
 ];
 
@@ -28,6 +29,7 @@ describe("ProductItem", () => {
       oldPrice: 10,
       rating: 4,
       categoryId: 1,
+      quantity: 1,
     };
     const onClick = vi.fn();
     render(
@@ -62,6 +64,7 @@ describe("ProductItem", () => {
       price: 20,
       rating: 4,
       categoryId: 1,
+      quantity: 1,
     };
     const onClick = vi.fn();
     render(
@@ -83,6 +86,7 @@ describe("ProductItem", () => {
       price: 20,
       rating: 4,
       categoryId: 1,
+      quantity: 1,
     };
     const onClick = vi.fn();
     render(
