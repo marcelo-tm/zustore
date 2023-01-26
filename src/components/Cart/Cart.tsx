@@ -10,6 +10,7 @@ import { Product } from "../../types/Product";
 interface CartData {
   cartProducts: Product[];
   toggleCartProducts: (product: Product) => void;
+  updateProductQuantity: (product: Product, qty: number) => void;
 }
 
 export type CartProps = {
@@ -60,6 +61,9 @@ export function Cart({ isOpen, toggleOpen, cartData }: CartProps) {
                   <CartProductItem
                     product={prod}
                     onRemove={() => cartData.toggleCartProducts(prod)}
+                    onQuantityChange={(qty) =>
+                      cartData.updateProductQuantity(prod, qty)
+                    }
                   />
                 </li>
               ))}

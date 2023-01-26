@@ -14,6 +14,6 @@ describe("Footer", () => {
     expect(innerWrapper).toHaveClass("flex", "justify-between", "items-center");
     const logo = screen.getByAltText("Zustand Store");
     expect(logo).toHaveAttribute("style", "height: 50px;");
-    expect(logo).toHaveAttribute("src", "/assets/zustore_logo_white.png");
+    expect(logo).toHaveAttribute("src", "/src/assets/zustore_logo_white.png");
   });
 });

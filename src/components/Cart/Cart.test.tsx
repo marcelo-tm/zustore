@@ -21,9 +21,11 @@ describe("Cart", () => {
           price: 10,
           rating: 1,
           categoryId: 1,
+          quantity: 1,
         },
       ],
       toggleCartProducts: () => {},
+      updateProductQuantity: () => {},
     };
     const { getByRole } = render(
       <Cart isOpen={isOpen} toggleOpen={toggleOpen} cartData={cartStore} />
@@ -46,6 +48,7 @@ describe("Cart", () => {
           price: 10,
           rating: 1,
           categoryId: 1,
+          quantity: 1,
         },
         {
           id: 2,
@@ -54,9 +57,11 @@ describe("Cart", () => {
           price: 20,
           rating: 2,
           categoryId: 2,
+          quantity: 1,
         },
       ],
       toggleCartProducts: () => {},
+      updateProductQuantity: () => {},
     };
     const { getByText } = render(
       <Cart isOpen={isOpen} toggleOpen={toggleOpen} cartData={cartStore} />
@@ -71,6 +76,7 @@ describe("Cart", () => {
     const cartStore = {
       cartProducts: [],
       toggleCartProducts: () => {},
+      updateProductQuantity: () => {},
     };
     const { getByText } = render(
       <Cart isOpen={isOpen} toggleOpen={toggleOpen} cartData={cartStore} />
@@ -85,6 +91,7 @@ describe("Cart", () => {
     const cartStore = {
       cartProducts: [],
       toggleCartProducts: () => {},
+      updateProductQuantity: () => {},
     };
     const { getByLabelText } = render(
       <Cart isOpen={isOpen} toggleOpen={toggleOpen} cartData={cartStore} />
@@ -99,6 +106,7 @@ describe("Cart", () => {
     const cartStore = {
       cartProducts: [],
       toggleCartProducts: () => {},
+      updateProductQuantity: () => {},
     };
     const { getByLabelText } = render(
       <Cart isOpen={isOpen} toggleOpen={toggleOpen} cartData={cartStore} />
