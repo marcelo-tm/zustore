@@ -7,24 +7,26 @@ import { CartProductItem } from "../CartProductItem";
 import { calculateTotalPrice } from "../../utility/cart";
 import { Product } from "../../types/Product";
 
-interface CartData {
-  cartProducts: Product[];
-  toggleCartProducts: (product: Product) => void;
-  updateProductQuantity: (product: Product, qty: number) => void;
-}
-
 export type CartProps = {
   isOpen: boolean;
   toggleOpen: () => void;
-  cartData: CartData;
+  products: Product[];
+  toggleProduct: (product: Product) => void;
+  updateProductQuantity: (product: Product, qty: number) => void;
 };
 
-export function Cart({ isOpen, toggleOpen, cartData }: CartProps) {
+export function Cart({
+  isOpen,
+  toggleOpen,
+  products,
+  toggleProduct,
+  updateProductQuantity,
+}: CartProps) {
   const [total, setTotal] = useState(0.0);
 
   useEffect(() => {
-    setTotal(calculateTotalPrice(cartData.cartProducts));
-  }, [cartData.cartProducts]);
+    setTotal(calculateTotalPrice(products));
+  }, [products]);
 
   return (
     <>
@@ -49,21 +51,19 @@ export function Cart({ isOpen, toggleOpen, cartData }: CartProps) {
             </IconButton>
           </div>
 
-          {cartData.cartProducts.length === 0 ? (
+          {products.length === 0 ? (
             <div className="flex flex-col items-center text-border mt-10">
               <ShoppingBagIcon className="h-20" />
               <p className="mt-2">Your shopping cart is empty</p>
             </div>
           ) : (
             <ul className="mt-10">
-              {cartData.cartProducts.map((prod) => (
+              {products.map((prod) => (
                 <li key={prod.id}>
                   <CartProductItem
                     product={prod}
-                    onRemove={() => cartData.toggleCartProducts(prod)}
-                    onQuantityChange={(qty) =>
-                      cartData.updateProductQuantity(prod, qty)
-                    }
+                    onRemove={() => toggleProduct(prod)}
+                    onQuantityChange={(qty) => updateProductQuantity(prod, qty)}
                   />
                 </li>
               ))}

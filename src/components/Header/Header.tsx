@@ -9,17 +9,17 @@ import { Category } from "../../types/Category";
 import { Product } from "../../types/Product";
 import { Icon } from "../Icon";
 
-interface CartData {
-  categories: Category[];
-  cartProducts: Product[];
-  toggleOpen: () => void;
-}
-
 type HeaderProps = {
-  cartData: CartData;
+  categories: Category[];
+  productsLength: number;
+  onToggleCart: () => void;
 };
 
-export function Header({ cartData }: HeaderProps) {
+export function Header({
+  categories,
+  productsLength,
+  onToggleCart,
+}: HeaderProps) {
   return (
     <>
       <ContentWrapper
@@ -34,7 +34,7 @@ export function Header({ cartData }: HeaderProps) {
             <li>
               <Link to="/">Home</Link>
             </li>
-            {cartData.categories.map((category) => (
+            {categories.map((category) => (
               <li key={category.id}>
                 <Link to={`category/${category.slug}`}>{category.name}</Link>
               </li>
@@ -42,10 +42,10 @@ export function Header({ cartData }: HeaderProps) {
           </ul>
         </nav>
 
-        <IconButton onClick={cartData.toggleOpen}>
+        <IconButton onClick={onToggleCart}>
           <HeaderCartIcon
             icon={<Icon iconData={<ShoppingBagIcon />} />}
-            quantity={cartData.cartProducts.length}
+            quantity={productsLength}
             aria-label="cart-icon"
           />
         </IconButton>

@@ -46,6 +46,7 @@ export default function useContentful() {
         return {
           ...item.fields,
           imgUrl,
+          quantity: 1,
         };
       });
 
