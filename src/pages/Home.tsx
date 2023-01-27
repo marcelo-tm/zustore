@@ -6,12 +6,16 @@ import { CategoryItem } from "../components/CategoryItem";
 import { ContentWrapper } from "../components/ContentWrapper";
 import { Title } from "../components/Title";
 import { ProductItem } from "../components/ProductItem";
-import useCartStore from "../stores/cart";
 import { Product } from "../types/Product";
 import { Category } from "../types/Category";
+import useCartStore from "../hooks/useCartStore";
+import useCategoriesStore from "../hooks/useCategoriesStore";
+import useBestSellingStore from "../hooks/useBestSellingStore";
 
 export function Home() {
   const cartStore = useCartStore();
+  const categoriesStore = useCategoriesStore();
+  const bestSellingStore = useBestSellingStore();
   const navigate = useNavigate();
 
   function handleCoverClick() {
@@ -47,7 +51,7 @@ export function Home() {
           <Title label="Browse Our Categories" className="text-center w-full" />
 
           <div className="flex justify-between mt-3">
-            {cartStore.categories.map((category: Category) => (
+            {categoriesStore.categories.map((category: Category) => (
               <CategoryItem
                 key={`cat-${category.id}`}
                 category={category}
@@ -63,11 +67,11 @@ export function Home() {
           <Title label="Best Selling" className="text-center w-full" />
 
           <div className="flex justify-between mt-3">
-            {cartStore.bestSelling.map((product: Product) => (
+            {bestSellingStore.bestSelling.map((product: Product) => (
               <ProductItem
                 key={`bs-${product.id}`}
                 product={product}
-                onClick={() => cartStore.toggleCartProducts(product)}
+                onClick={() => cartStore.toggleProduct(product)}
                 cartProducts={cartStore.cartProducts}
               />
             ))}

@@ -1,1 +1,0 @@
-export { HeaderCartIcon } from "./HeaderCartIcon";
