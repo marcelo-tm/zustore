@@ -8,6 +8,20 @@ describe("useCartStore", () => {
     useCartStore.setState(initialStoreState, true);
   });
 
+  it("should open/close the store", () => {
+    const { result } = renderHook(() => useCartStore());
+    const { toggleOpen } = result.current;
+
+    act(() => {
+      toggleOpen();
+    });
+    expect(result.current.isOpen).toBeTruthy();
+    act(() => {
+      toggleOpen();
+    });
+    expect(result.current.isOpen).toBeFalsy();
+  });
+
   it("should add product to cart", () => {
     const product = {
       id: 1,

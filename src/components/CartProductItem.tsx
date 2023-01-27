@@ -1,6 +1,6 @@
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { IconButton } from "./IconButton";
-import { Icon } from "./Icon/Icon";
+import { Icon } from "./Icon";
 import { Product } from "../types/Product";
 import { QuantitySelector } from "./QuantitySelector";
 
