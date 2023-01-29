@@ -4,8 +4,8 @@ import { renderHook, act } from "@testing-library/react";
 describe("useCategoriesStore", () => {
   it("should update categories state", () => {
     const categories = [
-      { id: 1, name: "Category 1", imgUrl: "", slug: "category1" },
-      { id: 2, name: "Category 2", imgUrl: "", slug: "category2" },
+      { id: 1, name: "Category 1", imgUrl: "", slug: "category1", banner: "" },
+      { id: 2, name: "Category 2", imgUrl: "", slug: "category2", banner: "" },
     ];
 
     const { result } = renderHook(() => useCategoriesStore());
