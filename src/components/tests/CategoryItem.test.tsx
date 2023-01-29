@@ -13,6 +13,7 @@ describe("CategoryItem", () => {
       name: "Category 1",
       imgUrl: "https://via.placeholder.com/300",
       slug: "category1",
+      banner: "",
     };
     const onClick = vi.fn();
 

@@ -7,8 +7,8 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 
 const mockObj = {
   categories: [
-    { id: 1, name: "Category 1", imgUrl: "", slug: "category-1" },
-    { id: 2, name: "Category 2", imgUrl: "", slug: "category-2" },
+    { id: 1, name: "Category 1", imgUrl: "", slug: "category-1", banner: "" },
+    { id: 2, name: "Category 2", imgUrl: "", slug: "category-2", banner: "" },
   ],
   productsLength: 0,
   onToggleCart: vi.fn(),

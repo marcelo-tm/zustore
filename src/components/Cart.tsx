@@ -31,7 +31,7 @@ export function Cart({
   return (
     <>
       <div
-        className={`bg-default bg-opacity-50 w-full h-screen fixed ${
+        className={`bg-slate-700 bg-opacity-50 w-full h-screen fixed ${
           isOpen ? "opacity-100 z-40" : "opacity-0 pointer-events-none"
         } ease-in-out duration-300`}
         onClick={toggleOpen}
