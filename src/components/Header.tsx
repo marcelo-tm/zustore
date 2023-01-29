@@ -6,7 +6,6 @@ import { HeaderCartIcon } from "./HeaderCartIcon";
 import { IconButton } from "./IconButton";
 import { ContentWrapper } from "./ContentWrapper";
 import { Category } from "../types/Category";
-import { Product } from "../types/Product";
 import { Icon } from "./Icon";
 
 type HeaderProps = {

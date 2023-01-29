@@ -19,10 +19,12 @@ export default function useContentful() {
 
       const sanitizedEntries: Category[] = entries.items.map((item: any) => {
         const imgUrl = item.fields.img.fields.file.url;
+        const banner = item.fields.banner.fields.file.url;
 
         return {
           ...item.fields,
           imgUrl,
+          banner,
         };
       });
 

@@ -8,6 +8,7 @@ import useCartStore from "../hooks/useCartStore";
 import useContentful from "../hooks/useContentful";
 import useCategoriesStore from "../hooks/useCategoriesStore";
 import useBestSellingStore from "../hooks/useBestSellingStore";
+import { Loading } from "../components/Loading";
 
 export function SharedLayout() {
   const cartStore = useCartStore();
@@ -38,25 +39,28 @@ export function SharedLayout() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col">
-      <Header
-        categories={categoriesStore.categories}
-        productsLength={cartStore.cartProducts.length}
-        onToggleCart={cartStore.toggleOpen}
-      />
-      <Cart
-        isOpen={cartStore.isOpen}
-        toggleOpen={cartStore.toggleOpen}
-        products={cartStore.cartProducts}
-        toggleProduct={cartStore.toggleProduct}
-        updateProductQuantity={cartStore.updateProductQuantity}
-      />
+    <>
+      {categoriesStore.categories.length === 0 ? <Loading /> : null}
+      <div className="h-screen flex flex-col">
+        <Header
+          categories={categoriesStore.categories}
+          productsLength={cartStore.cartProducts.length}
+          onToggleCart={cartStore.toggleOpen}
+        />
+        <Cart
+          isOpen={cartStore.isOpen}
+          toggleOpen={cartStore.toggleOpen}
+          products={cartStore.cartProducts}
+          toggleProduct={cartStore.toggleProduct}
+          updateProductQuantity={cartStore.updateProductQuantity}
+        />
 
-      <main className="pt-28 pb-20">
-        <Outlet />
-      </main>
+        <main className="pt-[100px] pb-20">
+          <Outlet />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
